@@ -8,21 +8,21 @@
         SUBROUTINE calc_colvar_CN_val(natoms,x,s_value)
         IMPLICIT NONE
 !   Input variables          
-        INTEGER                natoms
-        DOUBLE PRECISION       x(natoms*3)
+        INTEGER            ::  natoms
+        REAL(KIND=8)       ::  x(natoms*3)
 !   Output variables          
-        DOUBLE PRECISION       s_value 
+        REAL(KIND=8)       ::  s_value 
 !   Parameters or constants
-        DOUBLE PRECISION       r0                   ! reference distance
-        DOUBLE PRECISION       p_value, q_value     ! p and q parameters for CN
+        REAL(KIND=8)       ::  r0                   ! reference distance
+        REAL(KIND=8)       ::  p_value, q_value     ! p and q parameters for CN
 !   Dummy variables
-        DOUBLE PRECISION       rij_value            ! stores atomic distance temporarily
-        DOUBLE PRECISION       p_term, q_term
+        REAL(KIND=8)       ::  rij_value            ! stores atomic distance temporarily
+        REAL(KIND=8)       ::  p_term, q_term
 !   Dummy variables to account for the atoms
-        INTEGER                j1,j2,j3,j4
+        INTEGER            ::  j1,j2,j3,j4
 !   Declare functions
-        DOUBLE PRECISION       calc_rij             ! function to calc distance between atom i and j
-        DOUBLE PRECISION       calc_term            ! function to calc p_term or q_term
+        REAL(KIND=8)       ::  calc_rij             ! function to calc distance between atom i and j
+        REAL(KIND=8)       ::  calc_term            ! function to calc p_term or q_term
 
 !=======================================================
 !   Initialise variables and constants   
@@ -62,10 +62,10 @@
 !================================================================================================
 !       Function to calculate the p & q fractional terms in the Coodination Number colvar
 !================================================================================================
-        DOUBLE PRECISION FUNCTION calc_term(rij,r0,term_value  ) 
-        DOUBLE PRECISION     rij
-        DOUBLE PRECISION     r0, term_value                !term_value: p_value or q_value
-        DOUBLE PRECISION     temp
+        REAL(KIND=8) FUNCTION calc_term(rij,r0,term_value  ) 
+        REAL(KIND=8)     ::  rij
+        REAL(KIND=8)     ::  r0, term_value                !term_value: p_value or q_value
+        REAL(KIND=8)     ::  temp
 
         temp      = (rij / r0) ** term_value          !According to the Formula in Santarossa Au12
 

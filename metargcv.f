@@ -7,16 +7,16 @@
         SUBROUTINE  calc_colvar_Rg_val(natoms,x,s_value)
         IMPLICIT NONE
 !   Input variables
-        integer     natoms               ! number of atoms
-        real*8      x(natoms*3)          ! coordinates of the atoms
+        INTEGER           ::  natoms               ! number of atoms
+        REAL(KIND=8)      ::  x(natoms*3)          ! coordinates of the atoms
 !   Output variables
-        real*8      s_value              !collective variable value at current configuration
+        REAL(KIND=8)      ::  s_value              !collective variable value at current configuration
 !   Local variables and constants for Radius of Gyration calculation
-        real*8      mass                  ! mass of Gold atoms 
-        integer     j1,j2,j3,j4           ! to account for the atoms
-        real*8      xrcom, yrcom, zrcom   ! centre of mass(com) for each component 
-        real*8      xdiff, ydiff, zdiff   ! difference with com
-        real*8      x2,y2,z2              ! squares of the diff
+        REAL(KIND=8)      ::  mass                  ! mass of Gold atoms 
+        INTEGER           ::  j1,j2,j3,j4           ! to account for the atoms
+        REAL(KIND=8)      ::  xrcom, yrcom, zrcom   ! centre of mass(com) for each component 
+        REAL(KIND=8)      ::  xdiff, ydiff, zdiff   ! difference with com
+        REAL(KIND=8)      ::  x2,y2,z2              ! squares of the diff
 
 !========================================================
 !   Initialise variables and constants
@@ -66,15 +66,15 @@
 !   Subroutine to calculate the centre of mass(com)
 !================================================================================================
         SUBROUTINE calc_centre_of_mass(x,natoms,mass,
-     1 xrcom,yrcom,zrcom)
+     & xrcom,yrcom,zrcom)
 !  Input variables 
         INTEGER natoms
-        REAL*8  x(natoms*3)
-        REAL*8  mass
+        REAL(KIND=8)  ::  x(natoms*3)
+        REAL(KIND=8)  ::  mass
 !  Output variables
-        REAL*8  xrcom, yrcom, zrcom
+        REAL(KIND=8)  ::  xrcom, yrcom, zrcom
 !  Dummy variables    
-        INTEGER j1,j2
+        INTEGER       ::  j1,j2
 
         DO j1=1, natoms
              j2=j1*3

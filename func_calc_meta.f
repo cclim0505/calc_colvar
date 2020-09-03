@@ -4,10 +4,10 @@
 !===============================================================================================
 !       Function to calculate the distance between atom i and atom j
 !================================================================================================
-        DOUBLE PRECISION FUNCTION calc_rij(j1,j2,x,natoms)
-        INTEGER           j1, j2, j3, j4
-        DOUBLE PRECISION  x(natoms*3)
-        DOUBLE PRECISION  temp  
+        REAL(KIND=8) FUNCTION calc_rij(j1,j2,x,natoms)
+        INTEGER       ::  j1, j2, j3, j4
+        REAL(KIND=8)  ::  x(natoms*3)
+        REAL(KIND=8)  ::  temp  
           
         j3=j1*3                                            ! indexing for xyz axis
         j4=j2*3                                            ! indexing for xyz axis
@@ -26,11 +26,11 @@
 !===============================================================================================
 !       Function to calculate the xyz difference between atom i and atom j
 !================================================================================================
-        DOUBLE PRECISION FUNCTION calc_xyz_diff(j1,j2,x,natoms,axis)
-        INTEGER           j1, j2, j3, j4
-        DOUBLE PRECISION  x(natoms*3)
-        DOUBLE PRECISION  temp  
-        CHARACTER*1       axis                      !input for axis type
+        REAL(KIND=8) FUNCTION calc_xyz_diff(j1,j2,x,natoms,axis)
+        INTEGER                  ::  j1, j2, j3, j4
+        REAL(KIND=8)             ::  x(natoms*3)
+        REAL(KIND=8)             ::  temp  
+        CHARACTER(LEN=1)         ::  axis                      !input for axis type
           
         j3=j1*3                                            ! indexing for xyz axis
         j4=j2*3                                            ! indexing for xyz axis

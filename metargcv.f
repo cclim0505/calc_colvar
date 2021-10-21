@@ -2,7 +2,7 @@
 ! Other subroutines and functions exclusive to metargcv
 !************************************************************************************************
 !================================================================================================
-! Subroutine to calculate Radius of Gyration
+! Subroutine to calculate Radius of Gyration, output in atomic units
 !================================================================================================
         SUBROUTINE  calc_colvar_Rg_val(natoms,x,s_value)
         IMPLICIT NONE
@@ -17,6 +17,7 @@
         REAL(KIND=8)      ::  xrcom, yrcom, zrcom   ! centre of mass(com) for each component 
         REAL(KIND=8)      ::  xdiff, ydiff, zdiff   ! difference with com
         REAL(KIND=8)      ::  x2,y2,z2              ! squares of the diff
+        REAL(KIND=8),PARAMETER      ::  ang2au=1.889726      ! angstrom to atomic units
 
 !========================================================
 !   Initialise variables and constants
@@ -56,7 +57,7 @@
 !   Calculate the value of the Radius of Gyration
         s_value = x2 + y2 + z2
         s_value = s_value / natoms
-        s_value = DSQRT(s_value) * 2
+        s_value = DSQRT(s_value) * ang2au
 
         END SUBROUTINE  calc_colvar_Rg_val                    
 

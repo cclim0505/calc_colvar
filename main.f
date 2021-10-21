@@ -54,7 +54,7 @@
       DO
         READ(f_xyz,*,IOSTAT=ierr) 
         IF (ierr /= 0) EXIT
-        READ(f_xyz,*) dummy, dummy, timestep
+        READ(f_xyz,*) dummy, dummy, dummy, timestep
         DO j1=1,atoms
            j2=j1*3
            READ(f_xyz,*) dummy, x(j2-2), x(j2-1), x(j2)

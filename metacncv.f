@@ -27,7 +27,16 @@
 !=======================================================
 !   Initialise variables and constants   
 !=======================================================
-        r0       = 3.4 
+! Various nearest neighbour reference distance, in angstroms.
+! Calculation based on taking lattice constant, a.
+! E.g. for Gold, a=407.82 picometers, r0=340 pm divided by a gives
+! k=0.8337.
+! Thus r0 for Cu is deduced to be 361.49*k = 301.374 pm, which is
+! about 3.0 angstroms
+!       r0       = 3.4  ! Au
+!       r0       = 3.0  ! Cu
+!=======================================================
+        r0       = 3.0  ! Cu
         p_value  = 10.0
         q_value  = 16.0
         p_term   = 0.0
